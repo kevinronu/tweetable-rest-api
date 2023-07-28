@@ -1,27 +1,21 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Name:</strong>
+<div id="<%= dom_id user %>" class="show-user-container">
+  <% if user.avatar.attached? %>
+    <%= image_tag user.avatar, alt: "Image to #{user.name}", class: "show-user-avatar" %>
+  <% else %>
+    <%= image_tag "empty_avatar.png", alt: "Image not found", class: "show-user-avatar" %>
+  <% end %>
+
+  <p class="show-user-name">
     <%= user.name %>
   </p>
 
-  <p>
-    <strong>Username:</strong>
-    <%= user.username %>
+  <p class="show-user-username">
+    @<%= user.username %>
   </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
-
-  <p>
-    <strong>Password digest:</strong>
-    <%= user.password_digest %>
-  </p>
-
-  <p>
-    <strong>Role:</strong>
-    <%= user.role %>
+  <p class="show-user-date">
+    Joined on
+    <%= user.created_at.to_date.strftime("%Y-%m-%d") %>
   </p>
 
 </div>
