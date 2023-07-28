@@ -2,6 +2,17 @@
   background-color: var(--background);
 }
 
+.heading-logo {
+  font-size: 1.25em;
+  font-weight: 700;
+  line-height: 2rem;
+  display: flex;
+}
+
+.heading-logo-pink {
+  color: var(--primary-500);
+}
+
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -100,7 +111,7 @@
 
   .navbar__logo {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
 
