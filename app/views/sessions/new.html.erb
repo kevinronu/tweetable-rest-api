@@ -1,0 +1,34 @@
+<section class="section-xs">
+  <div class="container-lg new-session-content">
+    <h2 class="new-session-content__title">Sign in to your account</h2>
+    <div class="new-session-sign-in">
+      <div>
+        <p class="new-session-data__github-label">CONTINUE WITH</p>
+        </br>
+       
+      </p>
+      </br>
+      <p class="new-session-data__github-label">OR</p>
+      </br>
+      <%= form_with(url: sessions_path, class: "flex flex-column gap-4") do |f| %>
+        <div class="new-session-data">
+          <div class="field">
+            <%= f.label :email, class: "new-session-data__label new-session-data__label--left" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@mail.com", class: "new-session-data__field" %>
+          </div>
+          </br>
+          <div class="field">
+            <%= f.label :password, class: "new-session-data__label new-session-data__label--left" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "********", class: "new-session-data__field" %>
+          </div>
+          </br>
+          <div class="actions">
+            <%= f.submit "SIGN IN", class: "button button--primary button--sm w-full" %>
+          </div>
+        </div>
+      <% end %>
+      </br><p>Don’t have an account?</p></br>
+      <%= link_to "Create an account", signup_path, class: "color-primary-dark"  %><br />
+    </div>
+  </div>
+</section>
