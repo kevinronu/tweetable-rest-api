@@ -1,0 +1,120 @@
+.index-tweet-title {
+  font-size: 1.5em;
+  line-height: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-secondary);
+  text-align: center;
+}
+
+.index-tweet-create {
+  background-color: var(--background-lighter);
+  border-radius: 0.375rem;
+  border: 0.0625rem solid var(--background-dark);
+  filter: drop-shadow(0rem 0rem 0.125rem #00000080);
+  padding: 0.25rem 0.5rem;
+  /* position: relative; */
+}
+
+.index-tweet-create__text-area {
+  border: 0rem;
+  min-height: 6rem;
+  width: 100%;
+  margin: 0.25rem 0 0.5rem 0;
+  border-radius: 0.375rem;
+  padding: 0.25rem;
+}
+
+.index-tweet-create__text-area::placeholder {
+  color: var(--text-light);
+}
+
+.index-tweet-create__text-area:focus-visible {
+  outline: 0.125rem solid var(--primary);
+  outline-offset: 0.0625rem;
+}
+
+.index-tweet-create__input {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.index-tweet-card {
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  position: relative;
+  background-color: var(--background-lighter);
+}
+
+.index-tweet-card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.index-tweet-card__header {
+  height: 3rem;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+
+/* .index-tweet-card__avatar {
+} */
+
+.index-tweet-card__avatar-img {
+  height: 100%;
+  max-width: 3rem;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+/* .index-tweet-card__body {
+} */
+
+.index-tweet-card__footer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.index-tweet-card__footer-icons-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.index-tweet-card__footer-icon {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.index-tweet-card__footer-svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: transparent;
+  stroke-width: 2;
+  stroke: var(--subtle-darker);
+  stroke-linecap: round;
+  position: relative;
+  /* stroke-linejoin: round; */
+}
+
+.index-tweet-card__footer-svg :hover {
+  stroke: var(--primary);
+  cursor: pointer;
+}
+
+.icon_active {
+  stroke: var(--primary-dark);
+}
