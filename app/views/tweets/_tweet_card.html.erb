@@ -1,0 +1,64 @@
+<div class="index-tweet-card">
+  <%= link_to "", tweet_path(tweet), class: "index-tweet-card-link" %>
+  <div class="index-tweet-card__header">
+    <div class="index-tweet-card__avatar">
+      <% if tweet.user.avatar.attached? %>
+          <%= image_tag tweet.user.avatar, alt: "Image to #{tweet.user.name}", class: "index-tweet-card__avatar-img" %>
+      <% else %>
+          <%= image_tag "empty_avatar.png", alt: "Image not found", class: "index-tweet-card__avatar-img" %>
+      <% end %>
+    </div>
+
+    <div class="index-tweet-card__user">
+      <P>
+        <span class = "bold"><%= tweet.user.name %></span>
+        <span><a href="<%= user_path(tweet.user.username) %>" class="color-primary position-relative"> @<%= tweet.user.username %></a></span>
+      </p>
+      <P class = "text-light text-sm"><%= time_ago_in_words(tweet.created_at) %> ago</p>
+    </div>
+  </div>
+  
+  <div class="index-tweet-card__body">
+    <P><%= tweet.body %></p>
+  </div>
+
+  <div class="index-tweet-card__footer">
+    <% unless current_user.nil? %>
+      <div class="index-tweet-card__footer-icons-container">
+        <% if current_user == tweet.user || current_user.role == "admin" %>
+          <%= link_to edit_tweet_path(tweet) do %>
+            <div class="button-circle-icon">
+              <svg class="index-tweet-card__footer-svg"><use xlink:href="#pencil" /></svg>
+            </div>
+          <% end%>
+          <%= link_to tweet_path(tweet), data: { turbo_method: :delete } do %>
+            <div class="button-circle-icon">
+              <svg class="index-tweet-card__footer-svg"><use xlink:href="#trash" /></svg>
+            </div>
+          <% end%>
+        <% end %>
+      </div>
+      <div class="index-tweet-card__footer-icons-container">
+        <%= link_to tweet_path(tweet) do %>
+          <div class="index-tweet-card__footer-icon">
+            <svg class="index-tweet-card__footer-svg"><use xlink:href="#comment" /></svg>
+            <%= tweet.replies_count %>
+          </div>
+        <% end%>
+        <% like = Like.where(user_id: current_user.id, tweet_id: tweet.id).first %>
+        <div class="index-tweet-card__footer-icon">
+          <% if like.nil? %>
+            <%= link_to likes_path(like: { user_id: current_user.id, tweet_id: tweet.id } ), data: { turbo_method: :post } do %>
+                <svg class="index-tweet-card__footer-svg"><use xlink:href="#like" /></svg>
+            <% end%>
+          <% else%>
+            <%= link_to like_path(like), data: { turbo_method: :delete } do %>
+                <svg class = "index-tweet-card__footer-svg icon_active"><use xlink:href="#like" /></svg>
+            <% end%>
+          <% end%>
+          <%= tweet.likes_count %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
