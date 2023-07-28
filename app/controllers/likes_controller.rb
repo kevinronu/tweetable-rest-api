@@ -2,7 +2,7 @@ class LikesController < ApplicationController
   before_action :set_like, only: %i[destroy]
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:username])
     @likes = @user.likes.order(created_at: :desc)
   end
 

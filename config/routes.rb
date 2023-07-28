@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root "tweets#index"
 
   resources :tweets, except: %i[new]
-  resources :likes, only: %i[show create destroy]
+  resources :likes, only: %i[create destroy]
+  get "/likes/:username", to: "likes#show"
 
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create"

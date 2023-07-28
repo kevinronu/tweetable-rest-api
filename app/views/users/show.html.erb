@@ -18,13 +18,13 @@
     <nav class="show-user-nav">
       <ul class="show-user-nav__links">
         <li class="li">
-          <a href="<%= user_path(@user) %>" class="show-user-nav__links-tweets">
+          <a href="<%= user_path(@user.username) %>" class="show-user-nav__links-tweets">
             Tweets (<%= @user.tweets.size%>)
           </a>
           <hr class="hr"/>
         </li>
         <li class="li">
-          <a href="<%= like_path(@user) %>" class="show-user-nav__links-likes">
+          <a href="<%= like_path(@user.username) %>" class="show-user-nav__links-likes">
             Likes (<%= @user.likes.size%>)
           </a>
         </li>

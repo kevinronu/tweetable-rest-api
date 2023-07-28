@@ -22,7 +22,7 @@
           </a>
         </li>
         <li class="li">
-          <a href="<%= like_path(@user) %>" class="show-like-nav__links-likes">
+          <a href="<%= like_path(@user.username) %>" class="show-like-nav__links-likes">
             Likes (<%= @user.likes.size%>)
           </a>
           <hr class="hr"/>

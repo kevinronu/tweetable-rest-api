@@ -7,21 +7,6 @@
   text-align: center;
 }
 
-.show-like-avatar {
-  display: flex;
-  justify-content: center;
-}
-
-.show-like-avatar img {
-  height: 100%;
-  max-width: 6rem;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-}
-
 .show-like-name {
   font-size: 1.25rem;
   line-height: 1.75rem;
