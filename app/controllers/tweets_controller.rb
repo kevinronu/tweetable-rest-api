@@ -3,11 +3,13 @@ class TweetsController < ApplicationController
 
   # GET /tweets
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.order(created_at: :desc)
   end
 
   # GET /tweets/1
-  def show; end
+  def show
+    @replies_to_my_tweet = Tweet.where(replied_to_id: @tweet.id).order(created_at: :desc)
+  end
 
   # GET /tweets/new
   def new
@@ -22,7 +24,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
 
     if @tweet.save
-      redirect_to @tweet, notice: "Tweet was successfully created."
+      redirect_to fallback_location: root_path, notice: "Tweet was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +33,7 @@ class TweetsController < ApplicationController
   # PATCH/PUT /tweets/1
   def update
     if @tweet.update(tweet_params)
-      redirect_to @tweet, notice: "Tweet was successfully updated."
+      redirect_to fallback_location: root_path, notice: "Tweet was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,7 +42,7 @@ class TweetsController < ApplicationController
   # DELETE /tweets/1
   def destroy
     @tweet.destroy
-    redirect_to tweets_url, notice: "Tweet was successfully destroyed.", status: :see_other
+    redirect_to fallback_location: root_path, notice: "Tweet was successfully destroyed."
   end
 
   private
@@ -52,6 +54,6 @@ class TweetsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def tweet_params
-    params.require(:tweet).permit(:body, :replies_count, :likes_count, :user_id, :replied_to_id)
+    params.require(:tweet).permit(:body, :user_id, :replied_to_id)
   end
 end
