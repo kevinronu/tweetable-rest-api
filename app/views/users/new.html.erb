@@ -1,9 +1,21 @@
-<h1>New user</h1>
+<section class="section-xs">
+  <div class="container-lg new-user-content">
+    <h2 class="create-user-content__title">Create an account</h2>
+  
+    <div class="create-user-sign-in">
+      <div>
+        <p class="new-session-data__github-label">CONTINUE WITH</p>
+        </br>
+        
+      </p>
+      </br>
+      <p class="new-session-data__github-label">OR</p>
 
-<%= render "form", user: @user %>
-
-<br>
-
-<div>
-  <%= link_to "Back to users", users_path %>
-</div>
+      <%= render 'form', user: @user %>
+      <div class = "text-align-center">
+        </br><p>Already a member?</p></br>
+        <%= link_to "Sign in", login_path, class: "color-primary-dark" %><br />
+      </div>
+    </div>
+  </div>
+</section>
