@@ -1,37 +1,41 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user, only: %i[new create show]
 
-  # GET /users
-  def index
-    @users = User.all
+  # GET /users/:username
+  def show
+    @user = User.find_by(username: params[:username])
+    @my_tweets = Tweet.where(user_id: @user.id).order(created_at: :desc)
   end
 
-  # GET /users/1
-  def show; end
-
-  # GET /users/new
+  # GET /signup
   def new
     @user = User.new
   end
 
-  # GET /users/1/edit
-  def edit; end
+  # GET /profile
+  def edit
+    @user = current_user
+  end
 
-  # POST /users
+  # POST /signup
   def create
     @user = User.new(user_params)
 
     if @user.save
+      log_in(@user)
+
       redirect_to @user, notice: "User was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /users/1
+  # PATCH /profile
   def update
+    @user = current_user
+
     if @user.update(user_params)
-      redirect_to @user, notice: "User was successfully updated."
+      redirect_to user_path(current_user.username), notice: "User was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,19 +43,20 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    @user.destroy
-    redirect_to users_url, notice: "User was successfully destroyed.", status: :see_other
+    @user = User.find(params[:id])
+
+    if current_user.role == "admin"
+      @user.destroy
+      redirect_to users_url, notice: "User was successfully destroyed.", status: :see_other
+    else
+      redirect_to root_path, status: :forbidden
+    end
   end
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
-  def set_user
-    @user = User.find(params[:id])
-  end
-
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password_digest, :role)
+    params.require(:user).permit(:name, :username, :email, :avatar, :password, :password_confirmation)
   end
 end
