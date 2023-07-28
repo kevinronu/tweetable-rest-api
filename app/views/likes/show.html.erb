@@ -1,2 +1,41 @@
-<h1>Likes#show</h1>
-<p>Find me in app/views/likes/show.html.erb</p>
+<section class="section-xs">
+  <div class="container-lg">
+    <h1 class="show-like-title">Profile</h1>
+
+    <div>
+      <%= render @user %>
+      <% unless current_user.nil? %>
+        <% if current_user == @user || current_user.role == "admin" %>
+          </br>
+          <div class="show-like-edit">
+            <%= link_to "EDIT PROFILE", edit_profile_path, class: "show-like-edit__anchor button button--primary button--sm" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <nav class="show-like-nav">
+      <ul class="show-like-nav__links">
+        <li class="li">
+          <a href="<%= user_path(@user.username) %>" class="show-like-nav__links-tweets">
+            Tweets (<%= @user.tweets.size%>)
+          </a>
+        </li>
+        <li class="li">
+          <a href="<%= like_path(@user) %>" class="show-like-nav__links-likes">
+            Likes (<%= @user.likes.size%>)
+          </a>
+          <hr class="hr"/>
+        </li>
+      </ul>
+    </nav>
+
+    </br>
+
+    <div id="tweets">
+      <% @likes.each do |like| %>
+        <%= render "tweets/tweet_card", tweet: like.tweet %>
+      <% end %>
+    </div>
+  </div>
+</section>
