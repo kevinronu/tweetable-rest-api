@@ -1,10 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<section class="section-xs">
+  <div class="container-lg">
+    <h1 class="show-tweet-title">Tweet Detail</h1>
 
-<%= render @tweet %>
+    <%= render "tweet_card", tweet: @tweet %>
 
-<div>
-  <%= link_to "Edit this tweet", edit_tweet_path(@tweet) %> |
-  <%= link_to "Back to tweets", tweets_path %>
+    <hr class="show-tweet-hr"/>
 
-  <%= button_to "Destroy this tweet", @tweet, method: :delete %>
-</div>
+    <% unless current_user.nil? %>
+      <div class="show-tweet-create">
+        <%= form_for(Tweet.new, url: tweets_path, method: "post") do |form| %>
+          <%= form.text_area :body, class: "show-tweet-create__text-area", placeholder: "Something to say about it?" %>
+          <%= form.hidden_field :user_id, value: current_user.id %>
+          <%= form.hidden_field :replied_to_id, value: @tweet.id %>
+          <div class="show-tweet-create__input">
+            <%= form.submit "TWEET", class: "button button--primary button--sm" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    </br>
+    
+    <div>
+      <% @replies_to_my_tweet.each do |tweet| %>
+        <%= render "tweet_card", tweet: tweet %>
+      <% end %>
+    </div>
+  </div>
+</section>
