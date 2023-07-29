@@ -99,6 +99,7 @@
   }
 
   .navbar__links {
+    display: none;
     flex-direction: column;
     margin: 0;
     padding: 0.5rem 0;
@@ -113,11 +114,7 @@
     margin: 0;
   }
 
-  .expandable {
-    display: none;
-  }
-
-  #menu-mobile:checked ~ .expandable {
+  #menu-mobile:checked ~ .navbar__links {
     display: flex;
   }
 
