@@ -20,3 +20,5 @@ rails g migration AddIndexUserTweetToLike
 -- Modify migration: add_index :likes, [:user_id, :tweet_id], unique: true
 
 rails active_storage:install
+
+rails g migration AddTokenToUsers token:token
