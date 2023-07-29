@@ -67,5 +67,5 @@ group :development do
   # gem "spring"
 end
 
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
-gem 'omniauth-rails_csrf_protection'
+gem "omniauth-github", github: "omniauth/omniauth-github", branch: "master"
+gem "omniauth-rails_csrf_protection"

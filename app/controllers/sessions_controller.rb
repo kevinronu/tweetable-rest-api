@@ -33,7 +33,7 @@ class SessionsController < ApplicationController
         return
       end
     end
-    
+
     log_in(user)
     redirect_to root_path
   end
