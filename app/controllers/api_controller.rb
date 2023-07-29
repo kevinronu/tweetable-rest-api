@@ -3,7 +3,7 @@ class ApiController < ActionController::API
   before_action :require_login!
 
   def require_login!
-    current_user || render_unauthorized("Login to perform this action")
+    current_user || render_unauthorized("Access Denied")
   end
 
   def current_user

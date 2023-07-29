@@ -19,8 +19,13 @@ Rails.application.routes.draw do
   get "auth/github/callback", to: "sessions#create"
 
   namespace :api do # api/
-    resources :tweets, except: %i[new edit]
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+
+    resources :users, only: :create
+    get "/profile", to: "users#show"
+    patch "/profile", to: "users#update"
+
+    resources :tweets, except: %i[new edit]
   end
 end
