@@ -20,5 +20,7 @@ Rails.application.routes.draw do
 
   namespace :api do # api/
     resources :tweets, only: %i[index show]
+    post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
   end
 end
