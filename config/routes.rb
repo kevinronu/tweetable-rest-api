@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     patch "/profile", to: "users#update"
 
     resources :tweets, except: %i[new edit]
+    get "/my_tweets", to: "my_tweets#index"
+
     resources :likes, except: %i[new edit update]
   end
 end
