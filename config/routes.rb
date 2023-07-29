@@ -30,5 +30,6 @@ Rails.application.routes.draw do
     get "/my_tweets", to: "my_tweets#index"
 
     resources :likes, except: %i[new edit update]
+    get "/my_likes", to: "my_likes#index"
   end
 end

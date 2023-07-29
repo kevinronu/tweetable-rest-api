@@ -1,7 +1,7 @@
 module Api
   class LikesController < ApiController
     before_action :require_login!, except: %i[index show]
-    before_action :set_like, only: %i[show update destroy]
+    before_action :set_like, only: %i[show destroy]
 
     # GET /api/likes
     def index
