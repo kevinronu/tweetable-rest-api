@@ -17,4 +17,8 @@ Rails.application.routes.draw do
 
   post "/auth/github", as: :github_login
   get "auth/github/callback", to: "sessions#create"
+
+  namespace :api do # api/
+    resources :tweets, only: %i[index show]
+  end
 end
