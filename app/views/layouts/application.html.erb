@@ -15,25 +15,22 @@
       <div class="container-lg">
         <nav class="navbar">
           <input type="checkbox" id="menu-mobile" />
-
-          <a
-            href="<%= root_path %>"
-            class="navbar__logo heading-logo"
-          >
-            <span>{ </span><span class="heading-logo-pink">Tweet</span><span>able }</span>
-          </a>
-          <a class="heading-md">
-            <!-- option 1 -->
-            <label for="menu-mobile" id="toggle-close">
-              <i class="ri-close-fill ri-sm"></i>
+          <div class="heading-logo-container">
+            <a
+              href="<%= root_path %>"
+              class="navbar__logo"
+            >
+              <span>
+                { <span class="heading__logo--pink">Tweet</span>able }
+              </span>
+            </a>
+            <label for="menu-mobile" class="toggle-checkbox">
+              <span class="toggle-checkbox__first_line"></span>
+              <span class="toggle-checkbox__second_line"></span>
+              <span class="toggle-checkbox__last_line"></span>
             </label>
-
-            <!-- option 2 -->
-            <label for="menu-mobile" id="toggle-open">
-              <i class="ri-menu-fill ri-sm"></i>
-            </label>
-          </a>
-          <ul class="expandable navbar__links list-style-none">
+          </div>
+          <ul class="expandable navbar__links">
             <% if user_signed_in? %>
               <li class= "lbl">
                 Thanks for using Tweetable!
