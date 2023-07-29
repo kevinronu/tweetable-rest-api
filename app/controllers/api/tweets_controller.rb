@@ -23,7 +23,7 @@ module Api
       @tweet = Tweet.new(user_id: current_user.id, body: params[:body])
 
       if @tweet.save
-        render json: @tweet, status: :created
+        render json: tweet_data(@tweet), status: :created
       else
         render json: @tweet.errors, status: :unprocessable_entity
       end
