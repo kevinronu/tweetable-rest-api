@@ -1,24 +1,48 @@
-# README
+# Tweetable
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[https://tweetable.onrender.com/](https://tweetable.onrender.com/)
 
-Things you may want to cover:
+### Clone the repository
 
-* Ruby version
+```shell
+git clone git@github.com:kevinronu/tweetable-rest-api.git
+cd tweetable-rest-api
+```
 
-* System dependencies
+### Check your Ruby version
 
-* Configuration
+```shell
+ruby -v
+```
 
-* Database creation
+The ouput should start with something like `ruby 3.1.4`
 
-* Database initialization
+If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv) (it could take a while):
 
-* How to run the test suite
+```shell
+rbenv install 3.1.4
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Install
 
-* Deployment instructions
+```shell
+bundle install
+```
 
-* ...
+### Set environment variables
+
+Using [OAuth Apps](https://github.com/settings/developers):
+
+See [.env.example](https://github.com/kevinronu/tweetable-rest-api/blob/main/.env.example).
+
+### Initialize the database
+
+```shell
+rails db:create db:migrate db:seed
+```
+
+## Init server
+
+```shell
+rails s
+```
