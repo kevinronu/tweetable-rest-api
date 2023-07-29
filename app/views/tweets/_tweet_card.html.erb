@@ -5,7 +5,7 @@
       <% if tweet.user.avatar.attached? %>
           <%= image_tag tweet.user.avatar, alt: "Image to #{tweet.user.name}", class: "index-tweet-card__avatar-img" %>
       <% else %>
-          <%= image_tag "empty_avatar.png", alt: "Image not found", class: "index-tweet-card__avatar-img" %>
+          <%= image_tag "empty_avatar.webp", alt: "Image not found", class: "index-tweet-card__avatar-img" %>
       <% end %>
     </div>
 

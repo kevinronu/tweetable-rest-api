@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     @like = Like.new(like_params)
 
     if @like.save
-      redirect_back fallback_location: root_path, notice: "Like test was successfully created."
+      redirect_back fallback_location: root_path, notice: "Like was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

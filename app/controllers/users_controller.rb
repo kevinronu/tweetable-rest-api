@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in(@user)
 
-      redirect_to @user, notice: "User was successfully created."
+      redirect_to user_path(current_user.username), notice: "User was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
