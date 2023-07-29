@@ -5,7 +5,7 @@
       <div>
         <p class="new-session-data__github-label">CONTINUE WITH</p>
         </br>
-       
+        <%= button_to "GITHUB", github_login_path, method: :post, data: {turbo: false}, class: "button button--secondary button--sm w-full" %>
       </p>
       </br>
       <p class="new-session-data__github-label">OR</p>

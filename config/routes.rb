@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   patch "/profile", to: "users#update"
   post "/signup", to: "users#create"
   get "/signup", to: "users#new"
+
+  post "/auth/github", as: :github_login
+  get "auth/github/callback", to: "sessions#create"
 end
