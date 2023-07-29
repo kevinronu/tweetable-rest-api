@@ -12,12 +12,12 @@ class ApplicationController < ActionController::Base
 
   def log_in(user)
     session[:user_id] = user.id
-    flash[:info] = "You are now logged in"
+    flash.now[:info] = "You are now logged in"
   end
 
   def logout
     session.delete(:user_id)
-    flash[:info] = "Thanks for using Tweetable"
+    flash.now[:info] = "Thanks for using Tweetable"
   end
 
   def authenticate_user
