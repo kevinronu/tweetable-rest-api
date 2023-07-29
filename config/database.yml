@@ -84,3 +84,4 @@ production:
   database: tweetable_rest_api_production
   username: tweetable_rest_api
   password: <%= ENV["TWEETABLE_REST_API_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
