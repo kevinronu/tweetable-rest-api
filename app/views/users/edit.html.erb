@@ -7,6 +7,11 @@
         <div class="field">
           <%= f.label :username, class: "edit-user-data__label" %>
           <%= f.text_field :username, class: "edit-user-data__field"%>
+          <% if @user.errors.messages[:username].any? %>
+            <span class="input__error-message">
+              <%= @user.errors.messages[:username].join(", ")%>
+            </span>
+          <% end %>
         </div>
 
         </br>
@@ -14,6 +19,11 @@
         <div class="field">
           <%= f.label :email, class: "edit-user-data__label" %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "edit-user-data__field" %>
+          <% if @user.errors.messages[:email].any? %>
+            <span class="input__error-message">
+              <%= @user.errors.messages[:email].join(", ")%>
+            </span>
+          <% end %>
         </div>
 
         </br>
@@ -21,13 +31,29 @@
         <div class="field">
           <%= f.label :name, class: "edit-user-data__label" %>
           <%= f.text_field :name, class: "edit-user-data__field" %>
+          <% if @user.errors.messages[:name].any? %>
+            <span class="input__error-message">
+              <%= @user.errors.messages[:name].join(", ")%>
+            </span>
+          <% end %>
         </div>
 
         </br>
 
         <div>
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar, alt: "Image to #{@user.name}", class: "show-user-avatar" %>
+          <% else %>
+            <%= image_tag "empty_avatar.webp", alt: "Image not found", class: "show-user-avatar" %>
+          <% end %>
+
           <%= f.label :avatar, class: "edit-user-data__label" %>
           <%= f.file_field :avatar %>
+          <% if @user.errors.messages[:avatar].any? %>
+            <span class="input__error-message">
+              <%= @user.errors.messages[:avatar].join(", ")%>
+            </span>
+          <% end %>
         </div>
 
         </br>
@@ -35,9 +61,10 @@
         <div class="field">
           <%= f.label :password, class: "edit-user-data__label" %> <i class = "edit-user-data__info">(leave blank if you don't want to change it)</i>
           <%= f.password_field :password, autocomplete: "new-password", placeholder: "********", class: "edit-user-data__field" %>
-          <% if @minimum_password_length %>
-            <br />
-            <em class = "edit-user-data__info"><%= @minimum_password_length %> characters minimum</em>
+          <% if @user.errors.messages[:password].any? %>
+            <span class="input__error-message">
+              <%= @user.errors.messages[:password].join(", ")%>
+            </span>
           <% end %>
         </div>
 
@@ -46,6 +73,11 @@
         <div class="field">
           <%= f.label :password_confirmation, class: "edit-user-data__label" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********", class: "edit-user-data__field" %>
+          <% if @user.errors.messages[:password_confirmation].any? %>
+            <span class="input__error-message">
+              <%= @user.errors.messages[:password_confirmation].join(", ")%>
+            </span>
+          <% end %>
         </div>
 
         </br>
