@@ -1,6 +1,6 @@
 module Api
   class MyTweetsController < ApiController
-    # GET /api/my_tweets/
+    # GET /api/my_tweets
     def index
       my_tweets = Tweet.where(user_id: current_user.id).order(created_at: :desc)
       my_tweets_data = []
