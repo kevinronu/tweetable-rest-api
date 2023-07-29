@@ -10,8 +10,6 @@
   border-radius: 0.375rem;
   border: 0.0625rem solid var(--background-darker);
   background-color: var(--background-lighter);
-  /* box-shadow: var(--border-shadow-sm); */
-  /* filter: drop-shadow(var(--drop-shadow-sm)); */
 }
 
 .input::placeholder {

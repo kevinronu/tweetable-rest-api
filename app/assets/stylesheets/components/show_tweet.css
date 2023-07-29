@@ -10,8 +10,7 @@
 .show-tweet-create {
   background-color: var(--background-lighter);
   border-radius: 0.375rem;
-  border: 0.0625rem#D3D3D3;
-  filter: drop-shadow(0rem 0rem 0.125rem #00000080);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   padding: 0.25rem 0.5rem;
 }
 

@@ -21,7 +21,7 @@
 
 .edit-user-data__field {
   border-radius: 0.375rem;
-  border: 0.0625rem var(--subtle-dark);
+  border: 0.0625rem solid var(--subtle-dark);
   width: 100%;
   padding: 0.5rem 0.75rem;
 }
