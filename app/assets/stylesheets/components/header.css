@@ -2,17 +2,18 @@
   background-color: var(--background);
 }
 
-.heading-logo-container {
-  display: flex;
-  align-items: center;
-}
-
 .navbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 0.3rem 0;
+}
+
+.navbar__logo-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .navbar__logo {
@@ -82,9 +83,10 @@
     top: 0;
     right: 0;
     left: 0;
+    z-index: 1;
   }
 
-  .heading-logo-container {
+  .navbar__logo-container {
     width: 100%;
   }
 
