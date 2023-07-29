@@ -345,7 +345,7 @@
   --subtle-dark-dark-mode: var(--gray-dark-mode-300);
   --subtle-darker-dark-mode: var(--gray-dark-mode-400);
 
-  --error: var(--red-400);
+  --error: var(--red-700);
   --warning: var(--yellow-300);
   --success: var(--green-500);
   --success-dark: var(--green-700);
@@ -357,7 +357,7 @@
   --stroke-darker: var(--stone-900);
   --border: var(--gray-300);
   --info: var(--blue-400);
-  --error-dark-mode: var(--red-dark-mode-400);
+  --error-dark-mode: var(--red-dark-mode-700);
   --warning-dark-mode: var(--yellow-dark-mode-300);
   --success-dark-mode: var(--green-dark-mode-500);
   --success-dark-dark-mode: var(--green-dark-mode-700);

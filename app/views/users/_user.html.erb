@@ -2,7 +2,7 @@
   <% if user.avatar.attached? %>
     <%= image_tag user.avatar, alt: "Image to #{user.name}", class: "show-user-avatar" %>
   <% else %>
-    <%= image_tag "empty_avatar.png", alt: "Image not found", class: "show-user-avatar" %>
+    <%= image_tag "empty_avatar.webp", alt: "Image not found", class: "show-user-avatar" %>
   <% end %>
 
   <p class="show-user-name">
