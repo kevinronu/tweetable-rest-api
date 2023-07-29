@@ -49,4 +49,4 @@ rails s
 
 ## Import to Insomnia
 
-To test the API import this file into insomnia: [tweetable_insomnia](https://github.com/kevinronu/tweetable-rest-api/blob/main/tweetable_insomnia).
+To test the API import this file into insomnia: [tweetable_insomnia](https://github.com/kevinronu/tweetable-rest-api/blob/main/tweetable_insomnia.json).
