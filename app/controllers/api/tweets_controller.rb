@@ -5,7 +5,7 @@ module Api
 
     # GET /api/tweets
     def index
-      tweets = Tweet.all
+      tweets = Tweet.order(created_at: :desc)
       tweets_data = []
       tweets.each do |tweet|
         tweets_data.push(tweet_data(tweet))
