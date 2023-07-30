@@ -5,7 +5,7 @@ module Api
 
     # GET /api/likes
     def index
-      likes = Like.all
+      likes = Like.order(created_at: :desc)
       likes_data = []
       likes.each do |like|
         likes_data.push(like_data(like))
