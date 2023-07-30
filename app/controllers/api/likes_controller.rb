@@ -41,7 +41,8 @@ module Api
     private
 
     def like_data(like)
-      like.as_json(except: %i[user_id])
+      user = like.user
+      like.as_json(except: %i[user_id]).merge(username: user.username)
     end
 
     def set_like
