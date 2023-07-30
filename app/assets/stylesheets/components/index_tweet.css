@@ -85,6 +85,13 @@
   align-items: center;
 }
 
+.index-tweet-card__footer-no-user {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .index-tweet-card__footer-icons-container {
   display: flex;
   gap: 1rem;
