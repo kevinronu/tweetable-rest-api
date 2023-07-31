@@ -12,6 +12,10 @@ class User < ApplicationRecord
   validates :email, format: { with: VALID_EMAIL_REGEX, allow_blank: true }
   validates :username, presence: true, uniqueness: true
   validates :name, presence: true
+  validates :password, length: { minimum: 6 }, if: -> { password.present? }
+  validates :password_confirmation, length: { minimum: 6 }, if: lambda {
+                                                                  password_confirmation.present?
+                                                                }
 
   enum role: { member: 0, admin: 1 }
 end
