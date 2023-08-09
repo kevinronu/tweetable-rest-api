@@ -4,7 +4,7 @@ Welcome to **Tweetable**, a captivating microblogging prototype that allows user
 
 ## Experience the Prototype
 
-Explore the prototype here: [Tweetable Prototype](https://tweetable.onrender.com/)
+🌐Explore the prototype here: [Tweetable Prototype](https://tweetable.onrender.com/)
 
 ## Getting Started
 
