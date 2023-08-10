@@ -11,16 +11,16 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 puts "Seeding users"
 
 admin = User.create(username: "admin", name: "Son Goku", email: "admin@mail.com", password: "supersecret", password_confirmation: "supersecret", role: "admin")
-admin.avatar.attach(io: File.open('app/assets/images/goku.webp'), filename: 'goku.webp')
+admin.avatar.attach(io: File.open('db/data/images/goku.webp'), filename: 'goku.webp')
 
 thanos = User.create(username: "thanos", name: "The Great Thanos", email: "thanos@mail.com", password: "qwerty", password_confirmation: "qwerty", role: "member")
-thanos.avatar.attach(io: File.open('app/assets/images/thanos.webp'), filename: 'thanos.webp')
+thanos.avatar.attach(io: File.open('db/data/images/thanos.webp'), filename: 'thanos.webp')
 dr_real_neil = User.create(username: "drRealNeil", name: "The Real Neil", email: "drrealneil@mail.com", password: "qwerty", password_confirmation: "qwerty", role: "member")
-dr_real_neil.avatar.attach(io: File.open('app/assets/images/dr_real_neil.webp'), filename: 'dr_real_neil.webp')
+dr_real_neil.avatar.attach(io: File.open('db/data/images/dr_real_neil.webp'), filename: 'dr_real_neil.webp')
 dog_fire = User.create(username: "dogfire", name: "House on Fire", email: "dogfire@mail.com", password: "qwerty", password_confirmation: "qwerty", role: "member")
-dog_fire.avatar.attach(io: File.open('app/assets/images/dog_fire.webp'), filename: 'dog_fire.webp')
+dog_fire.avatar.attach(io: File.open('db/data/images/dog_fire.webp'), filename: 'dog_fire.webp')
 kevin = User.create(username: "kevinrn", name: "Kevin Robles", email: "kevinrn@mail.com", password: "qwerty", password_confirmation: "qwerty", role: "member")
-kevin.avatar.attach(io: File.open('app/assets/images/kevin.webp'), filename: 'kevin.webp')
+kevin.avatar.attach(io: File.open('db/data/images/kevin.webp'), filename: 'kevin.webp')
 
 puts "Seeding tweets"
 
