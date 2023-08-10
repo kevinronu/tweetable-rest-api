@@ -10,6 +10,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('users')
 
 puts "Seeding users"
 
+
 admin = User.create(username: "admin", name: "Son Goku", email: "admin@mail.com", password: "supersecret", password_confirmation: "supersecret", role: "admin")
 admin.avatar.attach(io: File.open('db/data/images/goku.webp'), filename: 'goku.webp')
 
