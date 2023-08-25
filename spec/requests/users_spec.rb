@@ -51,7 +51,7 @@ describe "Users", type: :request do
     expect(user.reload.name).to eq("New Testino")
   end
 
-  it "returns errors if update fails" do
+  it "returns errors if update user fails" do
     post "/api/users", params: valid_attributes
     user_data = response.parsed_body
     token = user_data["token"]
@@ -81,7 +81,7 @@ describe "Users", type: :request do
     post "/api/users", params: valid_attributes
     post "/api/login", params: { email: valid_attributes[:email], password: "wrong_password" }
     expect(response).to have_http_status(:unauthorized)
-    expect(response.body).to include("Invalid credentials")
+    expect(response.parsed_body["errors"]).to include("Invalid credentials")
   end
 
   it "logout a user" do
@@ -99,6 +99,6 @@ describe "Users", type: :request do
     post "/api/users", params: valid_attributes
     delete "/api/logout"
     expect(response).to have_http_status(:unauthorized)
-    expect(response.body).to include("Invalid credentials")
+    expect(response.parsed_body["errors"]).to include("Invalid credentials")
   end
 end
