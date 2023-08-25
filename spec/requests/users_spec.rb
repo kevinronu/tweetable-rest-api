@@ -29,6 +29,8 @@ describe "Users", type: :request do
     expect(user_data).to include("email")
     expect(user_data).to include("role")
     expect(user_data).to include("token")
+    expect(user_data).to include("created_at")
+    expect(user_data).to include("updated_at")
   end
 
   it "returns unprocessable entity with invalid attributes" do
@@ -61,7 +63,7 @@ describe "Users", type: :request do
     expect(response.parsed_body["errors"]).to_not be_empty
   end
 
-  it "logs in a user with valid credentials" do
+  it "login a user with valid credentials" do
     post "/api/users", params: valid_attributes
     post "/api/login",
          params: { email: valid_attributes[:email], password: valid_attributes[:password] }
