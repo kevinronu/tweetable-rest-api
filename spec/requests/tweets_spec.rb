@@ -40,7 +40,7 @@ describe "Tweets", type: :request do
     expect(tweet_data).to include("username")
   end
 
-  it "returns unprocessable entity with invalid attributes" do
+  it "creates a Tweet with invalid attributes" do
     post "/api/users", params: valid_user_attributes
     token = response.parsed_body["token"]
     post "/api/tweets", params: invalid_tweet_attributes, headers: auth_headers(token)
