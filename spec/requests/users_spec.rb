@@ -33,7 +33,7 @@ describe "Users", type: :request do
     expect(user_data).to include("updated_at")
   end
 
-  it "returns unprocessable entity with invalid attributes" do
+  it "creates a user with invalid attributes" do
     post "/api/users", params: invalid_attributes
     expect(response).to have_http_status(:unprocessable_entity)
   end
@@ -77,7 +77,7 @@ describe "Users", type: :request do
     expect(user_data).to include("token")
   end
 
-  it "returns unauthorized with invalid credentials" do
+  it "login a user with invalid credentials" do
     post "/api/users", params: valid_attributes
     post "/api/login", params: { email: valid_attributes[:email], password: "wrong_password" }
     expect(response).to have_http_status(:unauthorized)
