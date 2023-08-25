@@ -25,7 +25,7 @@ module Api
       if @tweet.save
         render json: tweet_data(@tweet), status: :created
       else
-        render json: @tweet.errors, status: :unprocessable_entity
+        render json: { errors: @tweet.errors }, status: :unprocessable_entity
       end
     end
 
@@ -35,7 +35,7 @@ module Api
         if @tweet.update(tweet_params)
           render json: tweet_data(@tweet)
         else
-          render json: @tweet.errors, status: :unprocessable_entity
+          render json: { errors: @tweet.errors }, status: :unprocessable_entity
         end
       else
         render_unauthorized("Invalid credentials")
